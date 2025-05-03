@@ -1,7 +1,25 @@
 {
-  "recommendations": [
-    "nrwl.angular-console",
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint"
-  ]
+    "recommendations": [
+        "ms-python.python",
+        "kevinrose.vsc-python-indent",
+        "njpwerner.autodocstring",
+        "ms-python.autopep8",
+        "DavidAnson.vscode-markdownlint",
+        "unifiedjs.vscode-mdx",
+        "xyc.vscode-mdx-preview",
+        "yoavbls.pretty-ts-errors",
+        "ms-playwright.playwright",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "arcanis.vscode-zipfs",
+        "naumovs.color-highlight",
+        "Continue.continue",
+        "ms-azuretools.vscode-docker",
+        "wix.vscode-import-cost",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "PKief.material-icon-theme",
+        "nrwl.angular-console",
+        "bradlc.vscode-tailwindcss",
+        "ms-azuretools.vscode-docker"
+    ]
 }
