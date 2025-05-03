@@ -3,3 +3,11 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
+
+pnpm-lock.yaml
+
+
+.next/
+
+## ignore python projects
+/apps/ai
