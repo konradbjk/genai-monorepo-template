@@ -38,9 +38,21 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# nx
 .nx/cache
 .nx/workspace-data
 
 # Next.js
 .next
 out
+
+# python
+.venv
+__pycache__
+
+# env variables
+env/*
+!env/*.env.template
+**/*/.env*
+!**/*/.env.template
+
