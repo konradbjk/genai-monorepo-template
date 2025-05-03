@@ -56,3 +56,6 @@ env/*
 **/*/.env*
 !**/*/.env.template
 
+# Vite config timestamps
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
