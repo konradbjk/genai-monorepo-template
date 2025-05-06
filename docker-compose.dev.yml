@@ -52,6 +52,7 @@ services:
     <<: *default-restart
     ports:
       - "6333:6333"
+      - "6334:6334"
     volumes:
       - qdrant-data:/qdrant/storage
     networks:
