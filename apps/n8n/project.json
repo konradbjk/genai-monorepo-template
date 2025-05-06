@@ -2,32 +2,44 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "n8n",
   "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml start n8n"
+      }
+    },
+    "stop": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml stop n8n"
+      }
+    },
     "pull": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker pull n8nio/n8n:latest"
       }
     },
     "up:prod": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose up -d n8n"
       }
     },
     "down:prod": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose down n8n"
       }
     },
     "up": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml up -d n8n"
       }
     },
     "down": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml down n8n"
       }

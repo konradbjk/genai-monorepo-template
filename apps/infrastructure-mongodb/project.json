@@ -2,32 +2,44 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "mongodb",
   "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml start mongodb"
+      }
+    },
+    "stop": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml stop mongodb"
+      }
+    },
     "pull": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker pull mongo:8"
       }
     },
     "up": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose up -d mongodb"
       }
     },
     "down": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose down mongodb"
       }
     },
     "up:dev": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml up -d mongodb"
       }
     },
     "down:dev": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml down mongodb"
       }

@@ -1,33 +1,45 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "infrastructure-postgres",
+  "name": "postgres",
   "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml start postgres"
+      }
+    },
+    "stop": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml stop postgres"
+      }
+    },
     "pull": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker pull postgres:17"
       }
     },
     "up": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml up -d postgres"
       }
     },
     "down": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml down postgres"
       }
     },
     "up:prod": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose up -d postgres"
       }
     },
     "down:prod": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose down postgres"
       }

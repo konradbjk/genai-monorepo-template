@@ -2,34 +2,46 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "qdrant",
   "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml start qdrant"
+      }
+    },
+    "stop": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml stop qdrant"
+      }
+    },
     "pull": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
-        "command": "docker pull mongo"
-      }
-    },
-    "up:prod": {
-      "executor": "@nx/workspace:run-commands",
-      "options": {
-        "command": "docker compose up -d qdrant"
-      }
-    },
-    "down:prod": {
-      "executor": "@nx/workspace:run-commands",
-      "options": {
-        "command": "docker compose down qdrant"
+        "command": "docker pull qdrant/qdrant"
       }
     },
     "up": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml up -d qdrant"
       }
     },
     "down": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml down qdrant"
+      }
+    },
+    "up:prod": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose up -d qdrant"
+      }
+    },
+    "down:prod": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose down qdrant"
       }
     }
   }
