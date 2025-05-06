@@ -21,7 +21,8 @@ class Settings(BaseSettings):
     port: int = 8080
     openai_api_key: str
     mongodb_uri: str
-    qdrant_url: str = 'http://localhost:6333'
+    qdrant_url: str = 'http://localhost:6333/'
+    nvidia_api_key: str
     mongodb_database_name: str = "documents"
     langchain_tracking_v2: bool = True
     langchain_api_key: str
