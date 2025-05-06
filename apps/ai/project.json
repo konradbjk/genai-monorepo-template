@@ -1,0 +1,32 @@
+{
+  "name": "fastapi-ai",
+  "sourceRoot": "apps/ai",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd apps/ai && uv run fastapi dev server.py"
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "options": {
+        "engine": "docker",
+        "context": "{workspaceRoot}/apps/ai",
+        "metadata": {
+          "images": ["fastapi-ai"],
+          "load": true,
+          "tags": [
+            "type=schedule",
+            "type=ref,event=tag",
+            "type=ref,event=pr",
+            "type=sha,prefix=sha-"
+          ]
+        }
+      }
+    }
+  }
+}
