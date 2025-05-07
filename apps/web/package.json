@@ -1,0 +1,16 @@
+{
+  "name": "@genai-monorepo-template/web",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "nx": {
+    "name": "web"
+  },
+  "dependencies": {
+    "@packages/ui": "workspace:*",
+    "next": "~15.2.4",
+    "next-intl": "^4.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  }
+}

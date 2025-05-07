@@ -1,0 +1,11 @@
+{
+  "HomePage": {
+    "sectionTitles": {
+      "aboutMe": "About Me",
+      "buyerMindPlatform": "BuyerMind Platform"
+    },
+    "about": "I'm the CTO at BuyerMind, where we're building an intelligent marketing system that helps businesses in hospitality and industrial manufacturing generate targeted content and execute personalized campaigns.",
+    "passion": "With a passion for technology and innovation, I lead our technical strategy and engineering teams to create solutions that transform how businesses engage with their customers.",
+    "AbutBuyerMind": "BuyerMind scrapes and analyzes data from various sources to generate targeted content and execute personalized campaigns."
+  }
+}
