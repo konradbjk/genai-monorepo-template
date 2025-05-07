@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi[standard]>=0.115.12",
+    "langchain-nvidia-ai-endpoints>=0.3.10",
     "langchain>=0.3.25",
     "langchain-openai>=0.3.16",
     "langchain-qdrant>=0.2.0",
