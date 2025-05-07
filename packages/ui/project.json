@@ -1,0 +1,6 @@
+{
+  "name": "@packages/ui",
+  "root": "packages/ui",
+  "sourceRoot": "packages/ui/src",
+  "type": "library"
+}
