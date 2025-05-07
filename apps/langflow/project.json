@@ -2,34 +2,46 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "langflow",
   "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml start langflow"
+      }
+    },
+    "stop": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml stop langflow"
+      }
+    },
     "pull": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker pull langflowai/langflow:latest"
       }
     },
-    "up:prod": {
-      "executor": "@nx/workspace:run-commands",
-      "options": {
-        "command": "docker compose up -d langflow"
-      }
-    },
-    "down:prod": {
-      "executor": "@nx/workspace:run-commands",
-      "options": {
-        "command": "docker compose down langflow"
-      }
-    },
     "up": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml up -d langflow"
       }
     },
     "down": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml down langflow"
+      }
+    },
+    "up:prod": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose up -d langflow"
+      }
+    },
+    "down:prod": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose down langflow"
       }
     }
   }
