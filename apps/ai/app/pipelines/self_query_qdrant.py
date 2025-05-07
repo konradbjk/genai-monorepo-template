@@ -5,7 +5,7 @@ from langchain_core.documents import Document
 from langchain_core.prompts import PromptTemplate
 from langchain.chains.query_constructor.schema import AttributeInfo
 from langchain.retrievers.self_query.base import SelfQueryRetriever
-from app.utils import o4_mini as llm, nv_embeddings as embeddings, qdrant as vectorestore
+from app.utils import o4_mini as llm, qdrant as vectorestore
 
 prompt_template = PromptTemplate.from_template(
     "You are a product expert. Answer the question in English:\n\nQuestion: {text}"
@@ -35,7 +35,7 @@ metadata_field_info = [
 document_content_description = "Brief summary of a movie"
 
 
-def self_query_documents(query: str) -> List[Document]:
+def self_query_documents(query: str) -> List[Document] | []:
     """Pipeline - Self-Query Retriever
 
     Args:
