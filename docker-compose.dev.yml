@@ -27,6 +27,7 @@ services:
     <<: *default-restart
     env_file: "env/postgres.env"
     volumes:
+      - ./postgres-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
       - postgres-data:/var/lib/postgresql/data
     networks:
       node-network:
@@ -40,6 +41,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
+     - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
       - mongo-data:/data/db
     networks:
       node-network:
