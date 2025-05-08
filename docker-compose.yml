@@ -4,6 +4,35 @@ x-restart: &default-restart
   restart: unless-stopped
 
 services:
+
+  traefik:
+    image: traefik:v3.2
+    container_name: traefik_prod
+    command:
+      - "--global.sendAnonymousUsage=false"
+      - "--api.dashboard=true"
+      - "--api.insecure=false"
+      - "--log.level=DEBUG"
+      - "--providers.docker=true"
+      # rest goes here
+    labels:
+      - "traefik.docker.network=bridge"
+      # rest goes here
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - TZ
+      - LETSENCRYPT_EMAIL
+      # might need a few more
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "letsencrypt:/letsencrypt"
+    networks:
+      proxy:
+        aliases:
+          - traefik
+
   langflow:
     image: langflowai/langflow
     container_name: langflow_prod
@@ -39,8 +68,6 @@ services:
     container_name: mongo_prod
     <<: *default-restart
     env_file: "env/mongo.env"
-    ports:
-      - "27017:27017"
     volumes:
       - mongo-data:/data/db
     networks:
@@ -52,8 +79,6 @@ services:
     image: qdrant/qdrant
     container_name: qdrant_prod
     <<: *default-restart
-    ports:
-      - "6333:6333"
     volumes:
       - qdrant-data:/qdrant/storage
     networks:
@@ -67,8 +92,6 @@ services:
     <<: *default-restart
     volumes:
       - ollama:/root/.ollama
-    ports:
-      - "11434:11434"
     networks:
       node-network:
         aliases:
