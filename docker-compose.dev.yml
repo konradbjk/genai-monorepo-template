@@ -5,7 +5,7 @@ x-restart: &default-restart
 
 services:
   langflow:
-    image: langflowai/langflow
+    image: langflowai/langflow:1.2.0
     container_name: langflow_dev
     <<: *default-restart
     env_file: "env/langflow.env"
@@ -21,11 +21,30 @@ services:
         aliases:
           - langflow
 
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n_dev
+    <<: *default-restart
+    env_file:
+      - env/n8n.env
+    ports:
+      - 5678:5678
+    volumes:
+      - n8n-data:/home/node/.n8n
+    depends_on:
+      - postgres
+    networks:
+      node-network:
+        aliases:
+          - n8n
+
   postgres:
     image: postgres:17
     container_name: postgres_dev
     <<: *default-restart
     env_file: "env/postgres.env"
+    ports:
+      - "5432:5432"
     volumes:
       - ./postgres-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
       - postgres-data:/var/lib/postgresql/data
@@ -41,7 +60,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-     - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+     - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
       - mongo-data:/data/db
     networks:
       node-network:
@@ -76,6 +95,7 @@ services:
           - ollama
 
 volumes:
+  n8n-data:
   postgres-data:
   langflow-data:
   langflow-config:
