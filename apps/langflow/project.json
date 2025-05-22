@@ -6,12 +6,20 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml start langflow"
-      }
+      },
+      "dependsOn": ["postgres:start"]
+
     },
     "stop": {
       "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml stop langflow"
+      }
+    },
+    "logs": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker logs -f langflow_dev"
       }
     },
     "pull": {

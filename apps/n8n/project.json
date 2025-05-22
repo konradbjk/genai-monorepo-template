@@ -6,7 +6,8 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "docker compose -f docker-compose.dev.yml start n8n"
-      }
+      },
+      "dependsOn": ["postgres:start"]
     },
     "stop": {
       "executor": "nx:run-commands",

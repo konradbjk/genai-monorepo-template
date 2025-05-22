@@ -16,6 +16,10 @@
     "build": {
       "cache": true,
       "dependsOn": ["^build"]
+    },
+    "start": {
+      "cache": false,
+      "dependsOn": ["^start"]
     }
   },
   "plugins": [
